@@ -1,30 +1,32 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import Header from "./src/components/Header.js"; // OR import Header from "./components/Header.js"
+import BodyComp from "./src/components/BodyComp.js";
 
-const elem = <span>React JS</span> //JSX => React element
-const Content = () => (         //Function React Component
-    <h2 className = "para">This is a React Functional component</h2>
-)
-const title = (               //React Element
-    <h1 tabIndex = "5" className = "title">
-        {elem}
-        Namaste react Using JSX
-        </h1>
-);
-const container = (
-    <div id = "container">
-        {title}
-        {Content()}
-        <Content></Content>
-        <Content/>
-    </div>
-)
-const HeadingComponent = function() { 
-    return(
-        <div>
-            {container}
+
+// * Note We can also destructure props on the fly by wrapping them in between {}, this is like...
+
+// * const { resName, cuisine } = props;
+
+
+//* Note: When you have to dynamically pass in a data to a component, you pass in prop
+
+
+//not using keys (not acceptable)   <<<<<<<<<<<<  index as key (use as a last resort) <<<<<<<<<<<< unique id (best practice and laways preffered)
+
+
+
+
+const AppComponent = () => {
+    return (
+        <div className="App">
+            <Header />
+            <BodyComp />
         </div>
-    
-)};
-const root= ReactDOM.createRoot(document.getElementById("root")); //for displaying it on the browser
-root.render(<HeadingComponent/>); 
+    )
+}
+
+
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<AppComponent />);
